@@ -13,6 +13,7 @@ from imgui_integration import init_imgui
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 450
 
+pyray.set_config_flags(pyray.ConfigFlags.FLAG_WINDOW_RESIZABLE)
 pyray.init_window(SCREEN_WIDTH, SCREEN_HEIGHT, 'raylib example - basic window with imgui')
 pyray.set_target_fps(60)
 imgui_backend = init_imgui()
