@@ -8,18 +8,19 @@ import raylib as rl
 from imgui_bundle import ImVec2, imgui
 from imgui_bundle.python_backends import compute_fb_scale
 
-from .renderer import ModernGLRenderer
+# from .moderngl_renderer import ModernGLRenderer
+from .raylib_renderer import RaylibGLRenderer
 
 RaylibKey = int
 
 
 
 
-class ImguiBackend(ModernGLRenderer):
+class ImguiBackend(RaylibGLRenderer):
     key_map: Dict[RaylibKey, imgui.Key]
 
     def __init__(self):
-        super(ImguiBackend, self).__init__(ctx=moderngl.get_context())
+        super(ImguiBackend, self).__init__()
 
         self.io.display_size = ImVec2(rl.GetScreenWidth(),
                                       rl.GetScreenHeight())  # NOTE: maybe unnecessary since is set again in process_inputs()
