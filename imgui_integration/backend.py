@@ -22,9 +22,6 @@ class ImguiBackend(RaylibGLRenderer):
     def __init__(self):
         super(ImguiBackend, self).__init__()
 
-        self.io.display_size = ImVec2(rl.GetScreenWidth(),
-                                      rl.GetScreenHeight())  # NOTE: maybe unnecessary since is set again in process_inputs()
-
         def get_clipboard_text(_ctx: imgui.internal.Context) -> str:
             return rl.ffi.string(rl.GetClipboardText()).decode("utf-8")
 
